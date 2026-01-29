@@ -9,7 +9,7 @@ const urlRoutes = require('./routes/url');
 
 const app = express();
 app.use(cors({
-  origin: 'http://localhost:5173', // React (Vite)
+  origin: 'https://short-it-xi.vercel.app/', // React (Vite)
   credentials: true
 }));
 
