@@ -41,6 +41,7 @@ PORT=5000
 MONGODB_URI=mongodb://localhost:27017/url-shortener
 JWT_SECRET=your_secret_key
 BACKEND_URL=http://localhost:5001
+(check CORS Policy and change to http://localhost:5173 if you are using this in localhost)
 ```
 
 **Frontend (.env):**
