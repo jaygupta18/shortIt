@@ -40,7 +40,7 @@ npm start            # Runs on http://localhost:5173
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/url-shortener
 JWT_SECRET=your_secret_key
-FRONTEND_URL=http://localhost:5001
+BACKEND_URL=http://localhost:5001
 ```
 
 **Frontend (.env):**
@@ -62,3 +62,5 @@ REACT_APP_API_URL=http://localhost:5173
 
 ---
 Created By Jay Gupta
+
+
