@@ -9,7 +9,7 @@ const urlRoutes = require('./routes/url');
 
 const app = express();
 app.use(cors({
-  origin: 'https://short-it-xi.vercel.app/',
+  origin: 'https://short-it-xi.vercel.app',
   credentials: true
 }));
 
