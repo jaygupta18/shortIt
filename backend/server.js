@@ -9,7 +9,7 @@ const urlRoutes = require('./routes/url');
 
 const app = express();
 app.use(cors({
-  origin: 'https://short-it-xi.vercel.app', // React (Vite)
+  origin: 'https://short-it-git-main-jay-kumar-guptas-projects.vercel.app', // React (Vite)
   credentials: true
 }));
 
