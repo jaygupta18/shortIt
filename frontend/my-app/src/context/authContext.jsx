@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
 
   // Vite exposes env vars with VITE_ prefix
-  const API_URL = import.meta.env.VITE_API_URL || 'https://shortit-vanx.onrender.com/';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://shortit-vanx.onrender.com';
 
   useEffect(() => {
     // Check for token in localStorage

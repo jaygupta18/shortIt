@@ -13,7 +13,7 @@ const Home = () => {
   const [copied, setCopied] = useState(false);
   const { token } = useAuth();
 
-  const API_URL = import.meta.env.REACT_APP_API_URL || 'https://shortit-vanx.onrender.com/';
+  const API_URL = import.meta.env.REACT_APP_API_URL || 'https://shortit-vanx.onrender.com';
 
   const handleSubmit = async (e) => {
     e.preventDefault();

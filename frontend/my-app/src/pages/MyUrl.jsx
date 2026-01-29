@@ -12,7 +12,7 @@ const MyUrls = () => {
   const { isAuthenticated, token } = useAuth();
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.REACT_APP_API_URL || 'https://shortit-vanx.onrender.com/';
+  const API_URL = import.meta.env.REACT_APP_API_URL || 'https://shortit-vanx.onrender.com';
 
   useEffect(() => {
     if (!isAuthenticated) {
