@@ -8,11 +8,12 @@ const authRoutes = require('./routes/auth');
 const urlRoutes = require('./routes/url');
 
 const app = express();
-app.use(cors({
-  origin: 'https://short-it-xi.vercel.app',
-  credentials: true
-}));
 
+app.use(cors({
+  origin: '*',          // ya specific frontend URL daal sakta hai
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));``
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -49,19 +50,14 @@ app.use((req, res) => {
   });
 });
 
+// Error handler
 app.use((err, req, res, next) => {
-  console.error('🔥 Error:', err);
-
-  if (res.headersSent) {
-    return next(err);
-  }
-
-  res.status(err.statusCode || err.status || 500).json({
+  console.error('Error:', err);
+  res.status(err.status || 500).json({
     success: false,
-    message: err.message || 'Internal Server Error',
+    message: err.message || 'Internal server error'
   });
 });
-
 
 const PORT = process.env.PORT || 5000;
 

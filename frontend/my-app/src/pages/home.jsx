@@ -62,23 +62,23 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen  from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen">
       <Navbar />
 
-      <main className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+      <main className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <h1 className="text-5xl sm:text-6xl font-bold text-dark-text mb-4 tracking-tight">
             Shorten Your URLs
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-dark-text-muted max-w-xl mx-auto">
             Create short, memorable links in seconds
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
+        <div className="bg-dark-surface rounded-2xl border border-dark-border p-8 mb-10 shadow-2xl shadow-black/20">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="url" className="block text-sm font-medium text-dark-text-muted mb-2">
                 Enter your long URL
               </label>
               <div className="relative">
@@ -88,7 +88,7 @@ const Home = () => {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="https://example.com/very/long/url"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition"
+                  className="w-full px-4 py-3.5 bg-dark-bg-elevated border border-dark-border rounded-xl text-dark-text placeholder-dark-text-subtle transition"
                   disabled={loading}
                 />
               </div>
@@ -97,7 +97,7 @@ const Home = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full flex items-center justify-center space-x-2 bg-accent hover:bg-accent-hover text-dark-bg font-semibold py-3.5 px-6 rounded-xl transition disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-accent-glow/30"
             >
               <Link2 className="h-5 w-5" />
               <span>{loading ? 'Shortening...' : 'Shorten URL'}</span>
@@ -105,33 +105,33 @@ const Home = () => {
           </form>
 
           {shortUrl && (
-            <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Your shortened URL:
+            <div className="mt-8 p-6 bg-success-muted border border-dark-border rounded-xl">
+              <h3 className="text-lg font-semibold text-dark-text mb-4">
+                Your shortened URL
               </h3>
               
-              <div className="flex items-center space-x-2 mb-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
                 <input
                   type="text"
                   value={shortUrl}
                   readOnly
-                  className="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg text-primary-600 font-medium"
+                  className="flex-1 px-4 py-3 bg-dark-bg-elevated border border-dark-border rounded-xl text-accent font-medium"
                 />
                 <button
                   onClick={handleCopy}
-                  className="px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition flex items-center space-x-2"
+                  className="px-4 py-3 bg-accent hover:bg-accent-hover text-dark-bg font-medium rounded-xl transition flex items-center justify-center space-x-2 shrink-0"
                 >
                   {copied ? <Check className="h-5 w-5" /> : <Copy className="h-5 w-5" />}
                   <span>{copied ? 'Copied!' : 'Copy'}</span>
                 </button>
               </div>
 
-              <div className="flex items-center space-x-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <a
                   href={shortUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
+                  className="flex items-center space-x-2 text-accent hover:text-accent-hover font-medium transition"
                 >
                   <ExternalLink className="h-4 w-4" />
                   <span>Test Link</span>
@@ -139,7 +139,7 @@ const Home = () => {
                 
                 <button
                   onClick={handleReset}
-                  className="text-gray-600 hover:text-gray-700 font-medium"
+                  className="text-dark-text-muted hover:text-dark-text font-medium transition"
                 >
                   Create Another
                 </button>
@@ -149,38 +149,38 @@ const Home = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <div className="bg-primary-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Link2 className="h-8 w-8 text-primary-600" />
+          <div className="bg-dark-surface rounded-xl border border-dark-border p-6 text-center hover:border-dark-border hover:bg-dark-surface-hover transition">
+            <div className="bg-accent-muted rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-4">
+              <Link2 className="h-7 w-7 text-accent" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-semibold text-dark-text mb-2">
               Quick & Easy
             </h3>
-            <p className="text-gray-600">
+            <p className="text-dark-text-muted text-sm">
               Shorten URLs in just one click
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <BarChart3 className="h-8 w-8 text-purple-600" />
+          <div className="bg-dark-surface rounded-xl border border-dark-border p-6 text-center hover:border-dark-border hover:bg-dark-surface-hover transition">
+            <div className="bg-purple-muted rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-4">
+              <BarChart3 className="h-7 w-7 text-purple" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-semibold text-dark-text mb-2">
               Track Clicks
             </h3>
-            <p className="text-gray-600">
+            <p className="text-dark-text-muted text-sm">
               Monitor how many times your links are clicked
             </p>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-              <Check className="h-8 w-8 text-green-600" />
+          <div className="bg-dark-surface rounded-xl border border-dark-border p-6 text-center hover:border-dark-border hover:bg-dark-surface-hover transition">
+            <div className="bg-success-muted rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-4">
+              <Check className="h-7 w-7 text-success" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <h3 className="text-lg font-semibold text-dark-text mb-2">
               Reliable
             </h3>
-            <p className="text-gray-600">
+            <p className="text-dark-text-muted text-sm">
               Your links are secure and always available
             </p>
           </div>

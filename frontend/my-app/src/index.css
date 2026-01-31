@@ -1,1 +1,103 @@
 @import "tailwindcss";
+
+/* Google Font - Outfit: modern, geometric, distinctive */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  /* Dark palette */
+  --color-dark-bg: #0a0a0d;
+  --color-dark-bg-elevated: #111114;
+  --color-dark-surface: #16161a;
+  --color-dark-surface-hover: #1c1c22;
+  --color-dark-border: #27272d;
+  --color-dark-border-muted: #1f1f24;
+  
+  /* Text */
+  --color-dark-text: #f4f4f5;
+  --color-dark-text-muted: #a1a1aa;
+  --color-dark-text-subtle: #71717a;
+  
+  /* Accent - emerald/teal */
+  --color-accent: #34d399;
+  --color-accent-hover: #10b981;
+  --color-accent-muted: rgba(52, 211, 153, 0.15);
+  --color-accent-glow: rgba(52, 211, 153, 0.25);
+  
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-success-muted: rgba(34, 197, 94, 0.15);
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-danger-muted: rgba(239, 68, 68, 0.15);
+  --color-info: #3b82f6;
+  --color-info-muted: rgba(59, 130, 246, 0.15);
+  --color-purple: #a78bfa;
+  --color-purple-muted: rgba(167, 139, 250, 0.15);
+  
+  /* Font family */
+  --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--color-dark-border);
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-dark-bg);
+  color: var(--color-dark-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle gradient overlay on main background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(52, 211, 153, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(167, 139, 250, 0.05), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(59, 130, 246, 0.04), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Inputs in dark theme */
+input::placeholder {
+  color: var(--color-dark-text-subtle);
+}
+
+/* Focus ring using accent */
+input:focus, button:focus-visible, a:focus-visible {
+  outline: none;
+}
+
+input:focus, button:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-dark-bg), 0 0 0 4px var(--color-accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark-bg-elevated);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dark-text-subtle);
+}

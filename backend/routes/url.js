@@ -38,7 +38,7 @@ router.post('/shorten', optionalAuth, async (req, res) => {
       if (!existing) isUnique = true;
     }
 
-    // Create URL entry
+    
     const urlEntry = new Url({
       originalUrl,
       shortCode,
@@ -79,8 +79,7 @@ router.get('/:shortCode', async (req, res) => {
         message: 'Short URL not found' 
       });
     }
-
-    // Check if expired
+    
     if (urlEntry.expiresAt && new Date() > urlEntry.expiresAt) {
       return res.status(410).json({ 
         success: false, 
@@ -88,7 +87,7 @@ router.get('/:shortCode', async (req, res) => {
       });
     }
 
-    // Increment click count
+    
     urlEntry.clickCount += 1;
     await urlEntry.save();
 
